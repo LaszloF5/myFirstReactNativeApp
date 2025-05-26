@@ -25,6 +25,10 @@ const HomeScreen = () => {
     router.push("/(tabs)/profile");
   };
 
+  const goToTodo = () => {
+    router.push('/(tabs)/todo');
+  }
+
   const [count, setCount] = useState<number>(0);
   const [inputName, setInputName] = useState<string>("");
   const [name, setName] = useState<string>("");
@@ -85,6 +89,9 @@ const HomeScreen = () => {
       <TouchableOpacity style={styles.btn} onPress={goToSettings}>
         <Text style={styles.btnText}>Settings</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.btn} onPress={goToTodo}>
+        <Text style={styles.btnText}>Todo</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -129,6 +136,8 @@ const styles = StyleSheet.create({
   btnText: {
     fontWeight: 900,
     fontStyle: "italic",
+    width: 60,
+    textAlign: 'center',
   },
 });
 
