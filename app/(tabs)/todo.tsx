@@ -50,10 +50,12 @@ const Todo = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Todo list</Text>
+      <Text style={styles.text}>Todo list</Text>
       <View>
         <TextInput
+        style={[styles.text, styles.input]}
           placeholder="Type your todo"
+          placeholderTextColor='red'
           value={todoValue}
           onChangeText={setTodoValue}
         />
@@ -64,6 +66,7 @@ const Todo = () => {
           <View key={index} style={styles.todoList}>
             <Text
               style={[
+                styles.text,
                 styles.todoListText,
                 todo.done && styles.todoListTextDone,
               ]}
@@ -71,7 +74,7 @@ const Todo = () => {
               {todo.text}
             </Text>
             <TouchableOpacity onPress={() => doneItem(index)}>
-              <Text style={styles.itemDone}>{todo.done ? "✅" : "✔️"}</Text>
+              <Text style={[styles.text, styles.itemDone]}>{todo.done ? "✅" : "✔️"}</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => deleteItem(index)}>
               <Text style={styles.itemDelete}>❌</Text>
@@ -92,6 +95,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: '#000',
+  },
+  text: {
+    color: 'white',
   },
   button: {
     backgroundColor: "red",
@@ -103,6 +110,17 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#fff",
     fontSize: 16,
+  },
+  input: {
+    height: 40,
+    width: 250,
+    borderColor: "#fff",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    color: "#fff",
+    marginTop: 16,
+    marginBottom: 8,
   },
   todoList: {
     flexDirection: "row",
@@ -137,6 +155,4 @@ const styles = StyleSheet.create({
 
 export default Todo;
 
-/*
-    Később a törlés gomb helyére kerül egy X, a kész gombhoz pedig 1 pipa.
-*/
+

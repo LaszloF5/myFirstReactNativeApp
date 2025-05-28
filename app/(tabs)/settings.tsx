@@ -44,7 +44,6 @@ const setBackgroundColor = () => {
   setInputBgColor('');
 };
 
-
   const goToMainPage = () => {
     router.push("/(tabs)");
   };
